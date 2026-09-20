@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    min-height: 100vh;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom highlight markers */
+.sat-highlight-yellow {
+  background-color: #fef08a;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.sat-highlight-pink {
+  background-color: #fbcfe8;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.sat-highlight-blue {
+  background-color: #bae6fd;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* Authentic eliminated option strike-through line */
+.struck-through-option {
+  position: relative;
+  opacity: 0.45;
+}
+
+.struck-through-option::after {
+  content: '';
+  position: absolute;
+  left: 2.75rem;
+  right: 2.75rem;
+  top: 50%;
+  height: 2px;
+  background-color: #ef4444;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Custom passage scrollbar */
+.passage-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.passage-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.passage-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.passage-scroll::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print Stylesheet for SAT PDF Booklets */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 9.5pt;
+  }
+
+  header,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
